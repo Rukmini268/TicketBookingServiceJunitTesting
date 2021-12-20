@@ -1,20 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh "mvn -B TicketBookingServiceJunitTesting clean package"
-            }
-        }
-        stage('test') {
-            steps {
-                sh "mvn test -f TicketBookingServiceJunitTesting"
-            }
-        }
-        stage('package') {
-            steps {
-                sh "mvn package -f TicketBookingServiceJunitTesting"
-            }
-        }
+       stage('Maven-Clean') {
+        sh label: '', script: 'mvn clean'
+          }
+
+       stage('Maven-Compile') {
+         sh label: '', script: 'mvn compile'
+          }
+  
+         stage('Maven-Test') {
+           sh label: '', script: 'mvn test'
+         }
     }
 }
