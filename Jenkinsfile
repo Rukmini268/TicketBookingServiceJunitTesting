@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "mvn clean package -f TicketBookingServiceJunitTesting"
+                sh "mvn -B TicketBookingServiceJunitTesting clean package"
             }
         }
         stage('test') {
