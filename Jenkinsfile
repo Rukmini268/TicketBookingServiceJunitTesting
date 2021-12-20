@@ -3,10 +3,14 @@ pipeline {
 agent any 
     stages { 
         stage ('Build') { 
-          sh 'mvn clean install'
+            steps{
+                sh 'mvn clean install'
+            }
         }
         stage ('Test') { 
-          sh 'mvn test'
+            steps {
+                sh 'mvn test'
+            }
         }    
     }           
  }
